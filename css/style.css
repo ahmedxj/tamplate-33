@@ -6,9 +6,9 @@
 
 /****** start global rules *******/
 :root{
-    --color1:#2196f3;
+    --color1:#15c3c3;   /* #2196f3 */
     --color2:#ececec;
-    --color_h:#006fc7;
+    --color_h:#128585; /*#006fc7*/
 }
 *{
     box-sizing: border-box;
@@ -46,6 +46,52 @@ a{text-decoration: none;}
     .container{
         width: 1170px;
     }
+}
+.main-title{
+    margin: 100px auto;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+}
+.main-title::before{
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--color1);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -30px;
+}
+.main-title::after{
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--color1);
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -30px;
+}
+.main-title:hover::before{
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+.main-title:hover::after{
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+.main-title:hover{
+    color: white;
+    border-color:white ;
+    transition-delay:0.5s ;
 }
 /****** end global rules ********/
 
@@ -186,7 +232,8 @@ a{text-decoration: none;}
     width: 100%;
     background-color: #ececec;
     z-index: -2;
-    transform: skewY(-6deg);
+    /* transform: skewY(-6deg); */
+    transform: skewY(356deg);
     transform-origin: top left;
     background-image: url("../img/growing-global-network-data-connections-concept.jpg");
     background-size: cover;
@@ -199,9 +246,9 @@ a{text-decoration: none;}
     top: -40px;
     height: 100%;
     width: 100%;
-    background-color: #ecececc7;
+    background-color: #ececec0d;          /* background-color: #ecececc7; */
     z-index: -1;
-    transform: skewY(-6deg);
+    transform: skewY(-4deg);          /* transform: skewY(-6deg); */
     transform-origin: top left;
     box-shadow: inset 0px -6px 3px 0 #00000038;
 }
@@ -218,8 +265,11 @@ a{text-decoration: none;}
     z-index: 5;
 }
 .hero .text h1{
+    margin-bottom: 18px;
+    text-shadow: 4px 3px 5px black;
+    color: white;
     font-size: 40px;
-    margin: 0;
+    /* margin: 0; */
     z-index: 11;
     /* backdrop-filter: blur(3px); */
 }
@@ -228,14 +278,15 @@ a{text-decoration: none;}
     backdrop-filter: blur(3px);
     line-height: 1.7;
     margin: 5px 0 0;
-    color: #484848;
+    color:#dadada;           /* #484848 */
     max-width: 500px;
     z-index: 11;
+    text-shadow: 4px 3px 5px black;
 }
 .hero .img img{
     position: relative;
     width: 600px;
-    filter: drop-shadow(-7px 9px 5px #0059a16e);    /* #ead530 */
+    filter: drop-shadow(-7px 9px 5px #0c1d2c);    /* #ead530 */
     animation: up-and-down 5s linear infinite;
 }
 .hero .go_down i{
@@ -310,6 +361,32 @@ a{text-decoration: none;}
     40%,
     60% {
         transform: translateY(-15px);
+    }
+}
+@keyframes left-move {
+    50%{
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100%{
+        left: 0;
+        width: 60%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+@keyframes right-move {
+    50%{
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100%{
+        right: 0;
+        width: 60%;
+        height: 100%;
+        border-radius: 0;
     }
 }
 /* --------- end animation --------- */
